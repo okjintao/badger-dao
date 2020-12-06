@@ -1,0 +1,34 @@
+specVersion: 0.0.2
+description: $BADGER Token Contracts
+schema:
+  file: ./schema.graphql
+dataSources:
+  {% for contract in contracts %}
+  - kind: ethereum/contract
+    name: {{ contract.name }}
+    network: mainnet
+    source:
+      address: "{{ contract.address }}"
+      abi: BadgerSett
+      startBlock: {{ contract.startBlock }}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+        - name: BadgerSett
+          file: ./abis/BadgerSett.json
+      callHandlers:
+        - function: deposit(uint256)
+          handler: handleDeposit
+        - function: withdraw(uint256)
+          handler: handleWithdraw
+      file: ./src/setts.ts
+  {% endfor %}

@@ -1,9 +1,8 @@
 specVersion: 0.0.2
 description: $BADGER Token Contracts
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
-  
   - kind: ethereum/contract
     name: sBTCCRV
     network: mainnet
@@ -22,16 +21,15 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: sBTCCRV/abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: sBTCCRV/abis/BadgerSett.json
       callHandlers:
         - function: deposit(uint256)
           handler: handleDeposit
         - function: withdraw(uint256)
           handler: handleWithdraw
-      file: ./src/setts.ts
-  
+      file: sBTCCRV/sBTCCRV.wasm
   - kind: ethereum/contract
     name: renBTCCRV
     network: mainnet
@@ -50,16 +48,15 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: renBTCCRV/abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: renBTCCRV/abis/BadgerSett.json
       callHandlers:
         - function: deposit(uint256)
           handler: handleDeposit
         - function: withdraw(uint256)
           handler: handleWithdraw
-      file: ./src/setts.ts
-  
+      file: sBTCCRV/sBTCCRV.wasm
   - kind: ethereum/contract
     name: tBTCCRV
     network: mainnet
@@ -78,16 +75,15 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: tBTCCRV/abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: tBTCCRV/abis/BadgerSett.json
       callHandlers:
         - function: deposit(uint256)
           handler: handleDeposit
         - function: withdraw(uint256)
           handler: handleWithdraw
-      file: ./src/setts.ts
-  
+      file: sBTCCRV/sBTCCRV.wasm
   - kind: ethereum/contract
     name: UNI-BADGER
     network: mainnet
@@ -106,16 +102,15 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: UNI-BADGER/abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: UNI-BADGER/abis/BadgerSett.json
       callHandlers:
         - function: deposit(uint256)
           handler: handleDeposit
         - function: withdraw(uint256)
           handler: handleWithdraw
-      file: ./src/setts.ts
-  
+      file: sBTCCRV/sBTCCRV.wasm
   - kind: ethereum/contract
     name: hrenBTCCRV
     network: mainnet
@@ -134,13 +129,12 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: hrenBTCCRV/abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: hrenBTCCRV/abis/BadgerSett.json
       callHandlers:
         - function: deposit(uint256)
           handler: handleDeposit
         - function: withdraw(uint256)
           handler: handleWithdraw
-      file: ./src/setts.ts
-  
+      file: sBTCCRV/sBTCCRV.wasm
