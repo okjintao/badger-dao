@@ -29,6 +29,10 @@ dataSources:
           handler: handleDeposit
         - function: withdraw(uint256)
           handler: handleWithdraw
+        - function: depositAll()
+          handler: handleDepositAll
+        - function: withdrawAll()
+          handler: handleWithdrawAll
       file: sBTCCRV/sBTCCRV.wasm
   - kind: ethereum/contract
     name: renBTCCRV
@@ -56,6 +60,10 @@ dataSources:
           handler: handleDeposit
         - function: withdraw(uint256)
           handler: handleWithdraw
+        - function: depositAll()
+          handler: handleDepositAll
+        - function: withdrawAll()
+          handler: handleWithdrawAll
       file: sBTCCRV/sBTCCRV.wasm
   - kind: ethereum/contract
     name: tBTCCRV
@@ -83,6 +91,10 @@ dataSources:
           handler: handleDeposit
         - function: withdraw(uint256)
           handler: handleWithdraw
+        - function: depositAll()
+          handler: handleDepositAll
+        - function: withdrawAll()
+          handler: handleWithdrawAll
       file: sBTCCRV/sBTCCRV.wasm
   - kind: ethereum/contract
     name: UNI-BADGER
@@ -110,6 +122,10 @@ dataSources:
           handler: handleDeposit
         - function: withdraw(uint256)
           handler: handleWithdraw
+        - function: depositAll()
+          handler: handleDepositAll
+        - function: withdrawAll()
+          handler: handleWithdrawAll
       file: sBTCCRV/sBTCCRV.wasm
   - kind: ethereum/contract
     name: hrenBTCCRV
@@ -137,4 +153,8 @@ dataSources:
           handler: handleDeposit
         - function: withdraw(uint256)
           handler: handleWithdraw
+        - function: depositAll()
+          handler: handleDepositAll
+        - function: withdrawAll()
+          handler: handleWithdrawAll
       file: sBTCCRV/sBTCCRV.wasm

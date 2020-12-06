@@ -6,26 +6,29 @@ import {
   WithdrawCall,
   WithdrawAllCall,
   BadgerSett
-} from "../generated/BadgerSett/BadgerSett"
+} from "../generated/sBTCCRV/BadgerSett"
 import { getOrCreateSett, getOrCreateSettBalance, getOrCreateUser } from "./loader";
 import { NORMALIZER, NO_ADDR, REWARD, ZERO } from "./constants"
-import { ERC20 } from "../generated/BadgerSett/ERC20";
+import { ERC20 } from "../generated/sBTCCRV/ERC20";
 import { UserSettBalance, Deposit, Withdraw } from "../generated/schema";
 
 export function handleDeposit(call: DepositCall): void {
-  handleDespositCall(call.to, call.from, call.inputs._amount);
+  let sett = getOrCreateSett(call.to);
+  let token = call.inputs._amount;
+  let share = token.div(sett.pricePerFullShare.div(NORMALIZER));
+  handleDespositCall(call.to, call.from, token, share);
 }
 
 export function handleDepositAll(call: DepositAllCall): void {
   let contract = BadgerSett.bind(call.to);
-  let token = ERC20.bind(contract.token()).balanceOf(call.from);
-  handleDespositCall(call.to, call.from, token);
+  let sett = getOrCreateSett(call.to);
+  let share = contract.balanceOf(call.from);
+  let token = share.times(sett.pricePerFullShare.div(NORMALIZER));
+  handleDespositCall(call.to, call.from, token, share);
 }
 
-function handleDespositCall(to: Address, from: Address, token: BigInt): void {
+function handleDespositCall(to: Address, from: Address, token: BigInt, share: BigInt): void {
   let sett = getOrCreateSett(to);
-  let ratio = sett.pricePerFullShare == ZERO ? BigInt.fromI32(1) : sett.pricePerFullShare.div(NORMALIZER);
-  let share = token.div(ratio);
   sett.netDeposit = sett.netDeposit.plus(token);
   sett.netShareDeposit = sett.netShareDeposit.plus(share);
   sett.grossDeposit = sett.grossDeposit.plus(token);
@@ -43,19 +46,23 @@ function handleDespositCall(to: Address, from: Address, token: BigInt): void {
 }
 
 export function handleWithdraw(call: WithdrawCall): void {
-  handleWithdrawCall(call.to, call.from, call.inputs._shares);
+  let sett = getOrCreateSett(call.to);
+  let share = call.inputs._shares;
+  let token = share.times(sett.pricePerFullShare.div(NORMALIZER));
+  handleWithdrawCall(call.to, call.from, token, share);
 }
 
 export function handleWithdrawAll(call: WithdrawAllCall): void {
-  let contract = BadgerSett.bind(call.to);
-  let token = contract.balanceOf(call.from).times(contract.getPricePerFullShare().div(NORMALIZER));
-  handleWithdrawCall(call.to, call.from, token);
+  let sett = getOrCreateSett(call.to);
+  let fromUser = getOrCreateUser(call.from); 
+  let fromSettBalance = getOrCreateSettBalance(fromUser, sett);
+  let token = fromSettBalance.netDeposit;
+  let share = fromSettBalance.netShareDeposit;
+  handleWithdrawCall(call.to, call.from, token, share);
 }
 
-function handleWithdrawCall(to: Address, from: Address, token: BigInt): void {
+function handleWithdrawCall(to: Address, from: Address, token: BigInt, share: BigInt): void {
   let sett = getOrCreateSett(to);
-  let ratio = sett.pricePerFullShare == ZERO ? BigInt.fromI32(1) : sett.pricePerFullShare.div(NORMALIZER);
-  let share = token.div(ratio);
   sett.netDeposit = sett.netDeposit.minus(token);
   sett.netShareDeposit = sett.netShareDeposit.minus(share);
   sett.grossWithdraw = sett.grossWithdraw.plus(token);

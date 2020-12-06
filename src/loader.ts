@@ -7,8 +7,8 @@ import {
   Deposit,
   Withdraw
  } from "../generated/schema"
- import { BadgerSett, Transfer } from "../generated/BadgerSett/BadgerSett"
- import { ERC20 } from "../generated/BadgerSett/ERC20"
+ import { BadgerSett, Transfer } from "../generated/sBTCCRV/BadgerSett"
+ import { ERC20 } from "../generated/sBTCCRV/ERC20"
  import { ZERO } from "./constants"
 
 export function getOrCreateUser(address: Address): User {

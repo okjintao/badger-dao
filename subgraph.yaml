@@ -30,6 +30,10 @@ dataSources:
           handler: handleDeposit
         - function: withdraw(uint256)
           handler: handleWithdraw
+        - function: depositAll()
+          handler: handleDepositAll
+        - function: withdrawAll()
+          handler: handleWithdrawAll
       file: ./src/setts.ts
   
   - kind: ethereum/contract
@@ -58,6 +62,10 @@ dataSources:
           handler: handleDeposit
         - function: withdraw(uint256)
           handler: handleWithdraw
+        - function: depositAll()
+          handler: handleDepositAll
+        - function: withdrawAll()
+          handler: handleWithdrawAll
       file: ./src/setts.ts
   
   - kind: ethereum/contract
@@ -86,6 +94,10 @@ dataSources:
           handler: handleDeposit
         - function: withdraw(uint256)
           handler: handleWithdraw
+        - function: depositAll()
+          handler: handleDepositAll
+        - function: withdrawAll()
+          handler: handleWithdrawAll
       file: ./src/setts.ts
   
   - kind: ethereum/contract
@@ -114,6 +126,10 @@ dataSources:
           handler: handleDeposit
         - function: withdraw(uint256)
           handler: handleWithdraw
+        - function: depositAll()
+          handler: handleDepositAll
+        - function: withdrawAll()
+          handler: handleWithdrawAll
       file: ./src/setts.ts
   
   - kind: ethereum/contract
@@ -142,5 +158,9 @@ dataSources:
           handler: handleDeposit
         - function: withdraw(uint256)
           handler: handleWithdraw
+        - function: depositAll()
+          handler: handleDepositAll
+        - function: withdrawAll()
+          handler: handleWithdrawAll
       file: ./src/setts.ts
   
