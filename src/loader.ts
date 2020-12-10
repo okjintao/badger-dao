@@ -4,12 +4,12 @@ import {
   Sett,
   UserSettBalance,
   Token,
-  Deposit,
-  Withdraw
+  Geyser
  } from "../generated/schema"
- import { BadgerSett, Transfer } from "../generated/sBTCCRV/BadgerSett"
+ import { BadgerSett } from "../generated/sBTCCRV/BadgerSett"
+ import { BadgerGeyser } from "../generated/sBTCCRVGeyser/BadgerGeyser"
  import { ERC20 } from "../generated/sBTCCRV/ERC20"
- import { ZERO } from "./constants"
+ import { NO_ADDR, ZERO } from "./constants"
 
 export function getOrCreateUser(address: Address): User {
   let user = User.load(address.toHexString());
@@ -96,3 +96,36 @@ export function getOrCreateToken(address: Address): Token {
 
   return token as Token;
 };
+
+export function getOrCreateGeyser(address: Address): Geyser {
+  let geyser = Geyser.load(address.toHexString());
+  let contract = BadgerGeyser.bind(address);
+
+  if (geyser == null) {
+    geyser = new Geyser(address.toHexString());
+    geyser.netDeposit = ZERO;
+    geyser.grossDeposit = ZERO;
+    geyser.grossWithdraw = ZERO;
+    geyser.netShareDeposit = ZERO;
+    geyser.grossShareDeposit = ZERO;
+    geyser.grossShareWithdraw = ZERO;
+    geyser.rewardToken = NO_ADDR;
+    geyser.stakingToken = NO_ADDR;
+    geyser.cycleRewardTokens = ZERO;
+    geyser.cycleDuration = ZERO;
+  }
+
+  // let unlockSchedule = contract.try_getUnlockSchedulesFor(Address.fromString("0x3472A5A71965499acd81997a54BBA8D852C6E53d"));
+  // if (!unlockSchedule.reverted) {
+  //   geyser.cycleRewardTokens = unlockSchedule.value.values[0];
+  //   geyser.cycleDuration = unlockSchedule.value.values[2];
+  // }
+  // let unlockSchedule = contract.getUnlockSchedulesFor(Address.fromString("0x3472A5A71965499acd81997a54BBA8D852C6E53d"));
+  // geyser.cycleRewardTokens = unlockSchedule.indexOf(0);
+  let rewardToken = contract.try_getDistributionTokens();
+  geyser.rewardToken = !rewardToken.reverted ? getOrCreateToken(rewardToken.value).id : geyser.rewardToken;
+  let stakingToken = contract.try_getStakingToken();
+  geyser.stakingToken = !stakingToken.reverted ? getOrCreateToken(stakingToken.value).id : geyser.stakingToken;
+
+  return geyser as Geyser;
+}

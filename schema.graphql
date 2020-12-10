@@ -57,10 +57,16 @@ type Token @entity {
   totalSupply: BigInt!
 }
 
-type Deposit @entity {
+type Geyser @entity {
   id: ID!
-}
-
-type Withdraw @entity {
-  id: ID!
+  "Current sett deposit share value"
+  netShareDeposit: BigInt!
+  "Total sett deposit share value"
+  grossShareDeposit: BigInt!
+  "Total sett withdraw share value"
+  grossShareWithdraw: BigInt!
+  stakingToken: Token!
+  rewardToken: Token!
+  cycleRewardTokens: BigInt!
+  cycleDuration: BigInt!
 }

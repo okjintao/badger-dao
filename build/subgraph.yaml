@@ -24,15 +24,9 @@ dataSources:
           file: sBTCCRV/abis/ERC20.json
         - name: BadgerSett
           file: sBTCCRV/abis/BadgerSett.json
-      callHandlers:
-        - function: deposit(uint256)
-          handler: handleDeposit
-        - function: withdraw(uint256)
-          handler: handleWithdraw
-        - function: depositAll()
-          handler: handleDepositAll
-        - function: withdrawAll()
-          handler: handleWithdrawAll
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
       file: sBTCCRV/sBTCCRV.wasm
   - kind: ethereum/contract
     name: renBTCCRV
@@ -55,15 +49,9 @@ dataSources:
           file: renBTCCRV/abis/ERC20.json
         - name: BadgerSett
           file: renBTCCRV/abis/BadgerSett.json
-      callHandlers:
-        - function: deposit(uint256)
-          handler: handleDeposit
-        - function: withdraw(uint256)
-          handler: handleWithdraw
-        - function: depositAll()
-          handler: handleDepositAll
-        - function: withdrawAll()
-          handler: handleWithdrawAll
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
       file: sBTCCRV/sBTCCRV.wasm
   - kind: ethereum/contract
     name: tBTCCRV
@@ -86,15 +74,9 @@ dataSources:
           file: tBTCCRV/abis/ERC20.json
         - name: BadgerSett
           file: tBTCCRV/abis/BadgerSett.json
-      callHandlers:
-        - function: deposit(uint256)
-          handler: handleDeposit
-        - function: withdraw(uint256)
-          handler: handleWithdraw
-        - function: depositAll()
-          handler: handleDepositAll
-        - function: withdrawAll()
-          handler: handleWithdrawAll
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
       file: sBTCCRV/sBTCCRV.wasm
   - kind: ethereum/contract
     name: UNI-BADGER
@@ -117,15 +99,9 @@ dataSources:
           file: UNI-BADGER/abis/ERC20.json
         - name: BadgerSett
           file: UNI-BADGER/abis/BadgerSett.json
-      callHandlers:
-        - function: deposit(uint256)
-          handler: handleDeposit
-        - function: withdraw(uint256)
-          handler: handleWithdraw
-        - function: depositAll()
-          handler: handleDepositAll
-        - function: withdrawAll()
-          handler: handleWithdrawAll
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
       file: sBTCCRV/sBTCCRV.wasm
   - kind: ethereum/contract
     name: hrenBTCCRV
@@ -148,13 +124,32 @@ dataSources:
           file: hrenBTCCRV/abis/ERC20.json
         - name: BadgerSett
           file: hrenBTCCRV/abis/BadgerSett.json
-      callHandlers:
-        - function: deposit(uint256)
-          handler: handleDeposit
-        - function: withdraw(uint256)
-          handler: handleWithdraw
-        - function: depositAll()
-          handler: handleDepositAll
-        - function: withdrawAll()
-          handler: handleWithdrawAll
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: sBTCCRV/sBTCCRV.wasm
+  - kind: ethereum/contract
+    name: BADGER
+    network: mainnet
+    source:
+      address: "0x19D97D8fA813EE2f51aD4B4e04EA08bAf4DFfC28"
+      abi: BadgerSett
+      startBlock: 11380871
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: BADGER/abis/ERC20.json
+        - name: BadgerSett
+          file: BADGER/abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
       file: sBTCCRV/sBTCCRV.wasm

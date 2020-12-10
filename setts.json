@@ -23,5 +23,10 @@
     "name": "hrenBTCCRV",
     "address": "0xAf5A1DECfa95BAF63E0084a35c62592B774A2A87",
     "startBlock": 11380939
+  },
+  "Badger": {
+    "name": "BADGER",
+    "address": "0x19D97D8fA813EE2f51aD4B4e04EA08bAf4DFfC28",
+    "startBlock": 11380871
   }
 }

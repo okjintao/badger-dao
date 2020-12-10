@@ -56,11 +56,3 @@ type Token @entity {
   symbol: String!
   totalSupply: BigInt!
 }
-
-type Deposit @entity {
-  id: ID!
-}
-
-type Withdraw @entity {
-  id: ID!
-}

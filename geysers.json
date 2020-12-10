@@ -1,0 +1,32 @@
+{
+  "sBTCCRV": {
+    "name": "sBTCCRVGeyser",
+    "address": "0x10fC82867013fCe1bD624FafC719Bb92Df3172FC",
+    "startBlock": 11380877
+  },
+  "renBTCCRV": {
+    "name": "renBTCCRVGeyser",
+    "address": "0x2296f174374508278DC12b806A7f27c87D53Ca15",
+    "startBlock": 11380872
+  },
+  "tBTCCRV": {
+    "name": "tBTCCRVGeyser",
+    "address": "0x085A9340ff7692Ab6703F17aB5FfC917B580a6FD",
+    "startBlock": 11380878
+  },
+  "UNI-BADGER": {
+    "name": "UNI-BADGERGeyser",
+    "address": "0xA207D69Ea6Fb967E54baA8639c408c31767Ba62D",
+    "startBlock": 11380883
+  },
+  "hrenBTCCRV": {
+    "name": "hrenBTCCRVGeyser",
+    "address": "0xeD0B7f5d9F6286d00763b0FFCbA886D8f9d56d5e",
+    "startBlock": 11380939
+  },
+  "Badger": {
+    "name": "BADGERGeyser",
+    "address": "0xa9429271a28F8543eFFfa136994c0839E7d7bF77",
+    "startBlock": 11380871
+  }
+}
