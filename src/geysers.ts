@@ -1,7 +1,7 @@
 import {
   Staked,
   Unstaked
-} from "../generated/sBTCCRVGeyser/Geyser"
+} from "../generated/sBTCCRVGeyser/BadgerGeyser";
 import { getOrCreateGeyser } from "./loader";
 
 export function handleStaked(event: Staked): void {

@@ -28,5 +28,30 @@
     "name": "BADGER",
     "address": "0x19D97D8fA813EE2f51aD4B4e04EA08bAf4DFfC28",
     "startBlock": 11380871
+  },
+  "SLP-WBTC": {
+    "name": "SLP-WBTC",
+    "address": "0x758a43ee2bff8230eeb784879cdcff4828f2544d",
+    "startBlock": 11537600
+  },
+  "SLP-BADGER": {
+    "name": "SLP-BADGER",
+    "address": "0x1862A18181346EBd9EdAf800804f89190DeF24a5",
+    "startBlock": 11539529
+  },
+  "SLP-DIGG": {
+    "name": "SLP-DIGG",
+    "address": "0x88128580ACdD9c04Ce47AFcE196875747bF2A9f6",
+    "startBlock": 11681030
+  },
+  "UNI-DIGG": {
+    "name": "UNI-DIGG",
+    "address": "0xC17078FDd324CC473F8175Dc5290fae5f2E84714",
+    "startBlock": 11680833
+  },
+  "DIGG": {
+    "name": "DIGG",
+    "address": "0x7e7E112A68d8D2E221E11047a72fFC1065c38e1a",
+    "startBlock": 11680422
   }
 }

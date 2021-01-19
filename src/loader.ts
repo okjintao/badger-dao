@@ -1,4 +1,4 @@
-import { Address, BigInt } from "@graphprotocol/graph-ts"
+import { Address, BigInt, log } from "@graphprotocol/graph-ts"
 import { 
   User,
   Sett,
@@ -9,7 +9,7 @@ import {
  import { BadgerSett } from "../generated/sBTCCRV/BadgerSett"
  import { BadgerGeyser } from "../generated/sBTCCRVGeyser/BadgerGeyser"
  import { ERC20 } from "../generated/sBTCCRV/ERC20"
- import { NO_ADDR, ZERO } from "./constants"
+ import { BADGER, NO_ADDR, ZERO } from "./constants"
 
 export function getOrCreateUser(address: Address): User {
   let user = User.load(address.toHexString());
@@ -103,9 +103,6 @@ export function getOrCreateGeyser(address: Address): Geyser {
 
   if (geyser == null) {
     geyser = new Geyser(address.toHexString());
-    geyser.netDeposit = ZERO;
-    geyser.grossDeposit = ZERO;
-    geyser.grossWithdraw = ZERO;
     geyser.netShareDeposit = ZERO;
     geyser.grossShareDeposit = ZERO;
     geyser.grossShareWithdraw = ZERO;
@@ -115,17 +112,27 @@ export function getOrCreateGeyser(address: Address): Geyser {
     geyser.cycleDuration = ZERO;
   }
 
-  // let unlockSchedule = contract.try_getUnlockSchedulesFor(Address.fromString("0x3472A5A71965499acd81997a54BBA8D852C6E53d"));
-  // if (!unlockSchedule.reverted) {
-  //   geyser.cycleRewardTokens = unlockSchedule.value.values[0];
-  //   geyser.cycleDuration = unlockSchedule.value.values[2];
-  // }
-  // let unlockSchedule = contract.getUnlockSchedulesFor(Address.fromString("0x3472A5A71965499acd81997a54BBA8D852C6E53d"));
-  // geyser.cycleRewardTokens = unlockSchedule.indexOf(0);
-  let rewardToken = contract.try_getDistributionTokens();
-  geyser.rewardToken = !rewardToken.reverted ? getOrCreateToken(rewardToken.value).id : geyser.rewardToken;
-  let stakingToken = contract.try_getStakingToken();
-  geyser.stakingToken = !stakingToken.reverted ? getOrCreateToken(stakingToken.value).id : geyser.stakingToken;
+  let rewardToken = contract.getDistributionTokens();
+  geyser.rewardToken = getOrCreateToken(rewardToken[0]).id;
+  let stakingToken = contract.getStakingToken();
+  geyser.stakingToken = getOrCreateToken(stakingToken).id;
+  let unlockSchedules = contract.getUnlockSchedulesFor(Address.fromString(BADGER));
+
+  let totalTokens = BigInt.fromI32(0);
+  let start = BigInt.fromI32(0);
+  let end = BigInt.fromI32(0);
+  for (let i = 0; i < unlockSchedules.length; i++) {
+    let schedule = unlockSchedules[i];
+    totalTokens = totalTokens.plus(schedule.initialLocked);
+    if (start == BigInt.fromI32(0) || start > schedule.startTime) {
+      start = schedule.startTime;
+    }
+    if (end == BigInt.fromI32(0) || end < schedule.endAtSec) {
+      end = schedule.endAtSec;
+    }
+  }
+  geyser.cycleRewardTokens = totalTokens;
+  geyser.cycleDuration = end.minus(start);
 
   return geyser as Geyser;
 }

@@ -153,3 +153,328 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: sBTCCRV/sBTCCRV.wasm
+  - kind: ethereum/contract
+    name: SLP-WBTC
+    network: mainnet
+    source:
+      address: "0x758a43ee2bff8230eeb784879cdcff4828f2544d"
+      abi: BadgerSett
+      startBlock: 11537600
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: SLP-WBTC/abis/ERC20.json
+        - name: BadgerSett
+          file: SLP-WBTC/abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: sBTCCRV/sBTCCRV.wasm
+  - kind: ethereum/contract
+    name: SLP-BADGER
+    network: mainnet
+    source:
+      address: "0x1862A18181346EBd9EdAf800804f89190DeF24a5"
+      abi: BadgerSett
+      startBlock: 11539529
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: SLP-BADGER/abis/ERC20.json
+        - name: BadgerSett
+          file: SLP-BADGER/abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: sBTCCRV/sBTCCRV.wasm
+  - kind: ethereum/contract
+    name: SLP-DIGG
+    network: mainnet
+    source:
+      address: "0x88128580ACdD9c04Ce47AFcE196875747bF2A9f6"
+      abi: BadgerSett
+      startBlock: 11681030
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: SLP-DIGG/abis/ERC20.json
+        - name: BadgerSett
+          file: SLP-DIGG/abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: sBTCCRV/sBTCCRV.wasm
+  - kind: ethereum/contract
+    name: UNI-DIGG
+    network: mainnet
+    source:
+      address: "0xC17078FDd324CC473F8175Dc5290fae5f2E84714"
+      abi: BadgerSett
+      startBlock: 11680833
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: UNI-DIGG/abis/ERC20.json
+        - name: BadgerSett
+          file: UNI-DIGG/abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: sBTCCRV/sBTCCRV.wasm
+  - kind: ethereum/contract
+    name: DIGG
+    network: mainnet
+    source:
+      address: "0x7e7E112A68d8D2E221E11047a72fFC1065c38e1a"
+      abi: BadgerSett
+      startBlock: 11680422
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: DIGG/abis/ERC20.json
+        - name: BadgerSett
+          file: DIGG/abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: sBTCCRV/sBTCCRV.wasm
+  - kind: ethereum/contract
+    name: sBTCCRVGeyser
+    network: mainnet
+    source:
+      address: "0x10fC82867013fCe1bD624FafC719Bb92Df3172FC"
+      abi: BadgerGeyser
+      startBlock: 11380949
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Token
+        - Geyser
+      abis:
+        - name: ERC20
+          file: sBTCCRVGeyser/abis/ERC20.json
+        - name: BadgerGeyser
+          file: sBTCCRVGeyser/abis/BadgerGeyser.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleStaked
+        - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleUnstaked
+      file: sBTCCRVGeyser/sBTCCRVGeyser.wasm
+  - kind: ethereum/contract
+    name: renBTCCRVGeyser
+    network: mainnet
+    source:
+      address: "0x2296f174374508278DC12b806A7f27c87D53Ca15"
+      abi: BadgerGeyser
+      startBlock: 11380947
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Token
+        - Geyser
+      abis:
+        - name: ERC20
+          file: renBTCCRVGeyser/abis/ERC20.json
+        - name: BadgerGeyser
+          file: renBTCCRVGeyser/abis/BadgerGeyser.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleStaked
+        - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleUnstaked
+      file: sBTCCRVGeyser/sBTCCRVGeyser.wasm
+  - kind: ethereum/contract
+    name: tBTCCRVGeyser
+    network: mainnet
+    source:
+      address: "0x085A9340ff7692Ab6703F17aB5FfC917B580a6FD"
+      abi: BadgerGeyser
+      startBlock: 11380950
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Token
+        - Geyser
+      abis:
+        - name: ERC20
+          file: tBTCCRVGeyser/abis/ERC20.json
+        - name: BadgerGeyser
+          file: tBTCCRVGeyser/abis/BadgerGeyser.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleStaked
+        - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleUnstaked
+      file: sBTCCRVGeyser/sBTCCRVGeyser.wasm
+  - kind: ethereum/contract
+    name: UNI-BADGERGeyser
+    network: mainnet
+    source:
+      address: "0xA207D69Ea6Fb967E54baA8639c408c31767Ba62D"
+      abi: BadgerGeyser
+      startBlock: 11380951
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Token
+        - Geyser
+      abis:
+        - name: ERC20
+          file: UNI-BADGERGeyser/abis/ERC20.json
+        - name: BadgerGeyser
+          file: UNI-BADGERGeyser/abis/BadgerGeyser.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleStaked
+        - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleUnstaked
+      file: sBTCCRVGeyser/sBTCCRVGeyser.wasm
+  - kind: ethereum/contract
+    name: hrenBTCCRVGeyser
+    network: mainnet
+    source:
+      address: "0xeD0B7f5d9F6286d00763b0FFCbA886D8f9d56d5e"
+      abi: BadgerGeyser
+      startBlock: 11380956
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Token
+        - Geyser
+      abis:
+        - name: ERC20
+          file: hrenBTCCRVGeyser/abis/ERC20.json
+        - name: BadgerGeyser
+          file: hrenBTCCRVGeyser/abis/BadgerGeyser.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleStaked
+        - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleUnstaked
+      file: sBTCCRVGeyser/sBTCCRVGeyser.wasm
+  - kind: ethereum/contract
+    name: BADGERGeyser
+    network: mainnet
+    source:
+      address: "0xa9429271a28F8543eFFfa136994c0839E7d7bF77"
+      abi: BadgerGeyser
+      startBlock: 11380946
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Token
+        - Geyser
+      abis:
+        - name: ERC20
+          file: BADGERGeyser/abis/ERC20.json
+        - name: BadgerGeyser
+          file: BADGERGeyser/abis/BadgerGeyser.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleStaked
+        - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleUnstaked
+      file: sBTCCRVGeyser/sBTCCRVGeyser.wasm
+  - kind: ethereum/contract
+    name: SLP-WBTCGeyser
+    network: mainnet
+    source:
+      address: "0x612f681BCd12A0b284518D42D2DBcC73B146eb65"
+      abi: BadgerGeyser
+      startBlock: 11539829
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Token
+        - Geyser
+      abis:
+        - name: ERC20
+          file: SLP-WBTCGeyser/abis/ERC20.json
+        - name: BadgerGeyser
+          file: SLP-WBTCGeyser/abis/BadgerGeyser.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleStaked
+        - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleUnstaked
+      file: sBTCCRVGeyser/sBTCCRVGeyser.wasm
+  - kind: ethereum/contract
+    name: SLP-BADGERGeyser
+    network: mainnet
+    source:
+      address: "0xB5b654efBA23596Ed49FAdE44F7e67E23D6712e7"
+      abi: BadgerGeyser
+      startBlock: 11539649
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Token
+        - Geyser
+      abis:
+        - name: ERC20
+          file: SLP-BADGERGeyser/abis/ERC20.json
+        - name: BadgerGeyser
+          file: SLP-BADGERGeyser/abis/BadgerGeyser.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleStaked
+        - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
+          handler: handleUnstaked
+      file: sBTCCRVGeyser/sBTCCRVGeyser.wasm

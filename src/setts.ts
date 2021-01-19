@@ -1,9 +1,7 @@
 import { BigInt } from "@graphprotocol/graph-ts";
-import {
-  Transfer
-} from "../generated/sBTCCRV/BadgerSett"
+import { Transfer } from "../generated/sBTCCRV/BadgerSett"
 import { getOrCreateSett, getOrCreateSettBalance, getOrCreateUser } from "./loader";
-import { NORMALIZER, NO_ADDR } from "./constants"
+import { NORMALIZER, NO_ADDR, GEYSERS } from "./constants"
 import { UserSettBalance } from "../generated/schema";
 
 function handleWithdraw(userBalance: UserSettBalance, share: BigInt, token: BigInt): void {
@@ -23,7 +21,7 @@ function handleDeposit(userBalance: UserSettBalance, share: BigInt, token: BigIn
 }
 
 function isValidUser(address: string): boolean {
-  return address != NO_ADDR;
+  return address != NO_ADDR && !GEYSERS.includes(address);
 }
 
 export function handleTransfer(event: Transfer): void {
