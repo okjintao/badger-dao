@@ -4,6 +4,7 @@ import { BigInt } from "@graphprotocol/graph-ts";
 export const NONE = "";
 export const NO_ADDR = "0x0000000000000000000000000000000000000000";
 export const BADGER = "0x3472a5a71965499acd81997a54bba8d852c6e53d";
+export const DIGG = "0x798d1be841a82a273720ce31c822c61a67a601c3";
 
 // evaluated constants
 export let ZERO = BigInt.fromI32(0);
@@ -20,5 +21,7 @@ export let GEYSERS:string[] = [
   "0xed0b7f5d9f6286d00763b0ffcba886d8f9d56d5e",
   "0xa9429271a28f8543efffa136994c0839e7d7bf77",
   "0x612f681bcd12a0b284518d42d2dbcc73b146eb65",
-  "0xb5b654efba23596ed49fade44f7e67e23d6712e7"
+  "0xb5b654efba23596ed49fade44f7e67e23d6712e7",
+  "0x0194b5fe9ab7e0c43a08acbb771516fc057402e7",
+  "0x7f6fe274e172ac7d096a7b214c78584d99ca988b"
 ];

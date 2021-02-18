@@ -67,6 +67,8 @@ type Geyser @entity {
   grossShareWithdraw: BigInt!
   stakingToken: Token!
   rewardToken: Token!
-  cycleRewardTokens: BigInt!
-  cycleDuration: BigInt!
+  badgerCycleRewardTokens: BigInt!
+  badgerCycleDuration: BigInt!
+  diggCycleRewardTokens: BigInt!
+  diggCycleDuration: BigInt!
 }

@@ -38,5 +38,15 @@
     "name": "SLP-BADGERGeyser",
     "address": "0xB5b654efBA23596Ed49FAdE44F7e67E23D6712e7",
     "startBlock": 11539649
+  },
+  "SLP-DIGG": {
+    "name": "SLP-DIGGGeyser",
+    "address": "0x7f6fe274e172ac7d096a7b214c78584d99ca988b",
+    "startBlock": 11683493
+  },
+  "UNI-DIGG": {
+    "name": "UNI-DIGGGeyser",
+    "address": "0x0194B5fe9aB7e0C43a08aCbb771516fc057402e7",
+    "startBlock": 11683491
   }
 }

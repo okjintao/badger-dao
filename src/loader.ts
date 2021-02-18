@@ -8,8 +8,9 @@ import {
  } from "../generated/schema"
  import { BadgerSett } from "../generated/sBTCCRV/BadgerSett"
  import { BadgerGeyser } from "../generated/sBTCCRVGeyser/BadgerGeyser"
+ import { Digg } from "../generated/sBTCCRVGeyser/Digg"
  import { ERC20 } from "../generated/sBTCCRV/ERC20"
- import { BADGER, NO_ADDR, ZERO } from "./constants"
+ import { BADGER, NO_ADDR, ZERO, DIGG } from "./constants"
 
 export function getOrCreateUser(address: Address): User {
   let user = User.load(address.toHexString());
@@ -108,31 +109,12 @@ export function getOrCreateGeyser(address: Address): Geyser {
     geyser.grossShareWithdraw = ZERO;
     geyser.rewardToken = NO_ADDR;
     geyser.stakingToken = NO_ADDR;
-    geyser.cycleRewardTokens = ZERO;
-    geyser.cycleDuration = ZERO;
   }
 
   let rewardToken = contract.getDistributionTokens();
   geyser.rewardToken = getOrCreateToken(rewardToken[0]).id;
   let stakingToken = contract.getStakingToken();
   geyser.stakingToken = getOrCreateToken(stakingToken).id;
-  let unlockSchedules = contract.getUnlockSchedulesFor(Address.fromString(BADGER));
-
-  let totalTokens = BigInt.fromI32(0);
-  let start = BigInt.fromI32(0);
-  let end = BigInt.fromI32(0);
-  for (let i = 0; i < unlockSchedules.length; i++) {
-    let schedule = unlockSchedules[i];
-    totalTokens = totalTokens.plus(schedule.initialLocked);
-    if (start == BigInt.fromI32(0) || start > schedule.startTime) {
-      start = schedule.startTime;
-    }
-    if (end == BigInt.fromI32(0) || end < schedule.endAtSec) {
-      end = schedule.endAtSec;
-    }
-  }
-  geyser.cycleRewardTokens = totalTokens;
-  geyser.cycleDuration = end.minus(start);
 
   return geyser as Geyser;
 }
