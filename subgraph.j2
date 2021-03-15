@@ -1,12 +1,12 @@
 specVersion: 0.0.2
 description: $BADGER Token Contracts
 schema:
-  file: ./schema.graphql
+  file: ../schema.graphql
 dataSources:
   {% for contract in setts %}
   - kind: ethereum/contract
     name: {{ contract.name }}
-    network: mainnet
+    network: {{ chain }}
     source:
       address: "{{ contract.address }}"
       abi: BadgerSett
@@ -22,13 +22,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: ../abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ./src/setts.ts
+      file: ../src/setts.ts
   {% endfor %}
   {% for contract in geysers %}
   - kind: ethereum/contract
@@ -47,15 +47,15 @@ dataSources:
         - Geyser
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerGeyser
-          file: ./abis/BadgerGeyser.json
+          file: ../abis/BadgerGeyser.json
         - name: Digg
-          file: ./abis/Digg.json
+          file: ../abis/Digg.json
       eventHandlers:
         - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleStaked
         - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleUnstaked
-      file: ./src/geysers.ts
+      file: ../src/geysers.ts
   {% endfor %}

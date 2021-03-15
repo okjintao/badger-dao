@@ -1,0 +1,85 @@
+specVersion: 0.0.2
+description: $BADGER Token Contracts
+schema:
+  file: ../schema.graphql
+dataSources:
+  
+  - kind: ethereum/contract
+    name: CAKE-BNB-BTCB
+    network: bsc
+    source:
+      address: "0xF6BC36280F32398A031A7294e81131aEE787D178"
+      abi: BadgerSett
+      startBlock: 5516404
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: ../abis/ERC20.json
+        - name: BadgerSett
+          file: ../abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ../src/setts.ts
+  
+  - kind: ethereum/contract
+    name: CAKE-BBADGER-BTCB
+    network: bsc
+    source:
+      address: "0xba89fec5081ce1cdf24ab897fb80f6e9e6d3fda1"
+      abi: BadgerSett
+      startBlock: 5712803
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: ../abis/ERC20.json
+        - name: BadgerSett
+          file: ../abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ../src/setts.ts
+  
+  - kind: ethereum/contract
+    name: CAKE-BDIGG-BTCB
+    network: bsc
+    source:
+      address: "0xa71ebba5f3f24e84be96240264ae5de38b63860d"
+      abi: BadgerSett
+      startBlock: 5712807
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: ../abis/ERC20.json
+        - name: BadgerSett
+          file: ../abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ../src/setts.ts
+  
+  

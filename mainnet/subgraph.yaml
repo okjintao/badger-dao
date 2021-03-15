@@ -1,7 +1,7 @@
 specVersion: 0.0.2
 description: $BADGER Token Contracts
 schema:
-  file: ./schema.graphql
+  file: ../schema.graphql
 dataSources:
   
   - kind: ethereum/contract
@@ -22,13 +22,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: ../abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ./src/setts.ts
+      file: ../src/setts.ts
   
   - kind: ethereum/contract
     name: renBTCCRV
@@ -48,13 +48,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: ../abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ./src/setts.ts
+      file: ../src/setts.ts
   
   - kind: ethereum/contract
     name: tBTCCRV
@@ -74,13 +74,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: ../abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ./src/setts.ts
+      file: ../src/setts.ts
   
   - kind: ethereum/contract
     name: UNI-BADGER
@@ -100,13 +100,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: ../abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ./src/setts.ts
+      file: ../src/setts.ts
   
   - kind: ethereum/contract
     name: hrenBTCCRV
@@ -126,13 +126,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: ../abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ./src/setts.ts
+      file: ../src/setts.ts
   
   - kind: ethereum/contract
     name: BADGER
@@ -152,13 +152,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: ../abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ./src/setts.ts
+      file: ../src/setts.ts
   
   - kind: ethereum/contract
     name: SLP-WBTC
@@ -178,13 +178,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: ../abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ./src/setts.ts
+      file: ../src/setts.ts
   
   - kind: ethereum/contract
     name: SLP-BADGER
@@ -204,13 +204,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: ../abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ./src/setts.ts
+      file: ../src/setts.ts
   
   - kind: ethereum/contract
     name: SLP-DIGG
@@ -230,13 +230,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: ../abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ./src/setts.ts
+      file: ../src/setts.ts
   
   - kind: ethereum/contract
     name: UNI-DIGG
@@ -256,13 +256,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: ../abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ./src/setts.ts
+      file: ../src/setts.ts
   
   - kind: ethereum/contract
     name: DIGG
@@ -282,13 +282,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerSett
-          file: ./abis/BadgerSett.json
+          file: ../abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ./src/setts.ts
+      file: ../src/setts.ts
   
   
   - kind: ethereum/contract
@@ -307,17 +307,17 @@ dataSources:
         - Geyser
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerGeyser
-          file: ./abis/BadgerGeyser.json
+          file: ../abis/BadgerGeyser.json
         - name: Digg
-          file: ./abis/Digg.json
+          file: ../abis/Digg.json
       eventHandlers:
         - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleStaked
         - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleUnstaked
-      file: ./src/geysers.ts
+      file: ../src/geysers.ts
   
   - kind: ethereum/contract
     name: renBTCCRVGeyser
@@ -335,17 +335,17 @@ dataSources:
         - Geyser
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerGeyser
-          file: ./abis/BadgerGeyser.json
+          file: ../abis/BadgerGeyser.json
         - name: Digg
-          file: ./abis/Digg.json
+          file: ../abis/Digg.json
       eventHandlers:
         - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleStaked
         - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleUnstaked
-      file: ./src/geysers.ts
+      file: ../src/geysers.ts
   
   - kind: ethereum/contract
     name: tBTCCRVGeyser
@@ -363,17 +363,17 @@ dataSources:
         - Geyser
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerGeyser
-          file: ./abis/BadgerGeyser.json
+          file: ../abis/BadgerGeyser.json
         - name: Digg
-          file: ./abis/Digg.json
+          file: ../abis/Digg.json
       eventHandlers:
         - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleStaked
         - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleUnstaked
-      file: ./src/geysers.ts
+      file: ../src/geysers.ts
   
   - kind: ethereum/contract
     name: UNI-BADGERGeyser
@@ -391,17 +391,17 @@ dataSources:
         - Geyser
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerGeyser
-          file: ./abis/BadgerGeyser.json
+          file: ../abis/BadgerGeyser.json
         - name: Digg
-          file: ./abis/Digg.json
+          file: ../abis/Digg.json
       eventHandlers:
         - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleStaked
         - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleUnstaked
-      file: ./src/geysers.ts
+      file: ../src/geysers.ts
   
   - kind: ethereum/contract
     name: hrenBTCCRVGeyser
@@ -419,17 +419,17 @@ dataSources:
         - Geyser
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerGeyser
-          file: ./abis/BadgerGeyser.json
+          file: ../abis/BadgerGeyser.json
         - name: Digg
-          file: ./abis/Digg.json
+          file: ../abis/Digg.json
       eventHandlers:
         - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleStaked
         - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleUnstaked
-      file: ./src/geysers.ts
+      file: ../src/geysers.ts
   
   - kind: ethereum/contract
     name: BADGERGeyser
@@ -447,17 +447,17 @@ dataSources:
         - Geyser
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerGeyser
-          file: ./abis/BadgerGeyser.json
+          file: ../abis/BadgerGeyser.json
         - name: Digg
-          file: ./abis/Digg.json
+          file: ../abis/Digg.json
       eventHandlers:
         - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleStaked
         - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleUnstaked
-      file: ./src/geysers.ts
+      file: ../src/geysers.ts
   
   - kind: ethereum/contract
     name: SLP-WBTCGeyser
@@ -475,17 +475,17 @@ dataSources:
         - Geyser
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerGeyser
-          file: ./abis/BadgerGeyser.json
+          file: ../abis/BadgerGeyser.json
         - name: Digg
-          file: ./abis/Digg.json
+          file: ../abis/Digg.json
       eventHandlers:
         - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleStaked
         - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleUnstaked
-      file: ./src/geysers.ts
+      file: ../src/geysers.ts
   
   - kind: ethereum/contract
     name: SLP-BADGERGeyser
@@ -503,17 +503,17 @@ dataSources:
         - Geyser
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerGeyser
-          file: ./abis/BadgerGeyser.json
+          file: ../abis/BadgerGeyser.json
         - name: Digg
-          file: ./abis/Digg.json
+          file: ../abis/Digg.json
       eventHandlers:
         - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleStaked
         - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleUnstaked
-      file: ./src/geysers.ts
+      file: ../src/geysers.ts
   
   - kind: ethereum/contract
     name: SLP-DIGGGeyser
@@ -531,17 +531,17 @@ dataSources:
         - Geyser
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerGeyser
-          file: ./abis/BadgerGeyser.json
+          file: ../abis/BadgerGeyser.json
         - name: Digg
-          file: ./abis/Digg.json
+          file: ../abis/Digg.json
       eventHandlers:
         - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleStaked
         - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleUnstaked
-      file: ./src/geysers.ts
+      file: ../src/geysers.ts
   
   - kind: ethereum/contract
     name: UNI-DIGGGeyser
@@ -559,15 +559,15 @@ dataSources:
         - Geyser
       abis:
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
         - name: BadgerGeyser
-          file: ./abis/BadgerGeyser.json
+          file: ../abis/BadgerGeyser.json
         - name: Digg
-          file: ./abis/Digg.json
+          file: ../abis/Digg.json
       eventHandlers:
         - event: Staked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleStaked
         - event: Unstaked(indexed address,uint256,uint256,indexed uint256,indexed uint256,bytes)
           handler: handleUnstaked
-      file: ./src/geysers.ts
+      file: ../src/geysers.ts
   

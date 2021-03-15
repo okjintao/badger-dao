@@ -1,0 +1,17 @@
+{
+  "CAKE-BNB-BTCB": {
+    "name": "CAKE-BNB-BTCB",
+    "address": "0xF6BC36280F32398A031A7294e81131aEE787D178",
+    "startBlock": 5516404
+  },
+  "CAKE-BBADGER-BTCB": {
+    "name": "CAKE-BBADGER-BTCB",
+    "address": "0xba89fec5081ce1cdf24ab897fb80f6e9e6d3fda1",
+    "startBlock": 5712803
+  },
+  "CAKE-BDIGG-BTCB": {
+    "name": "CAKE-BDIGG-BTCB",
+    "address": "0xa71ebba5f3f24e84be96240264ae5de38b63860d",
+    "startBlock": 5712807
+  }
+}
