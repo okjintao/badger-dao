@@ -1,5 +1,5 @@
 import { BigInt } from "@graphprotocol/graph-ts";
-import { Transfer } from "../generated/sBTCCRV/BadgerSett"
+import { Transfer } from "../generated/CAKE-BBADGER-BTCB/BadgerSett"
 import { getOrCreateSett, getOrCreateSettBalance, getOrCreateUser } from "./loader";
 import { NORMALIZER, NO_ADDR, GEYSERS } from "./constants"
 import { UserSettBalance } from "../generated/schema";

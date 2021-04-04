@@ -8,7 +8,7 @@ dataSources:
     name: CAKE-BNB-BTCB
     network: bsc
     source:
-      address: "0xF6BC36280F32398A031A7294e81131aEE787D178"
+      address: "0xaf4B9C4b545D5324904bAa15e29796D2E2f90813"
       abi: BadgerSett
       startBlock: 5516404
     mapping:
@@ -34,7 +34,7 @@ dataSources:
     name: CAKE-BBADGER-BTCB
     network: bsc
     source:
-      address: "0xba89fec5081ce1cdf24ab897fb80f6e9e6d3fda1"
+      address: "0x857F91f735f4B03b19D2b5c6E476C73DB8241F55"
       abi: BadgerSett
       startBlock: 5712803
     mapping:
@@ -60,7 +60,7 @@ dataSources:
     name: CAKE-BDIGG-BTCB
     network: bsc
     source:
-      address: "0xa71ebba5f3f24e84be96240264ae5de38b63860d"
+      address: "0xa861Ba302674b08f7F2F24381b705870521DDfed"
       abi: BadgerSett
       startBlock: 5712807
     mapping:
