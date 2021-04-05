@@ -8,9 +8,9 @@ import {
  } from "../generated/schema"
  import { BadgerSett } from "../generated/sBTCCRV/BadgerSett"
  import { BadgerGeyser } from "../generated/sBTCCRVGeyser/BadgerGeyser"
- import { Digg } from "../generated/sBTCCRVGeyser/Digg"
+ import { AffiliateVault } from "../generated/AffiliateVault/AffiliateVault"
  import { ERC20 } from "../generated/sBTCCRV/ERC20"
- import { BADGER, NO_ADDR, ZERO, DIGG } from "./constants"
+ import { NO_ADDR, ZERO } from "./constants"
 
 export function getOrCreateUser(address: Address): User {
   let user = User.load(address.toHexString());
@@ -117,4 +117,40 @@ export function getOrCreateGeyser(address: Address): Geyser {
   geyser.stakingToken = getOrCreateToken(stakingToken).id;
 
   return geyser as Geyser;
+}
+
+export function getOrAffiliateSett(address: Address): Sett {
+  let sett = Sett.load(address.toHexString());
+  let contract = AffiliateVault.bind(address);
+
+  if (sett == null) {
+    sett = new Sett(address.toHexString());
+    sett.name = "";
+    sett.symbol = "";
+    sett.token = "";
+    sett.pricePerFullShare = ZERO;
+    sett.balance = ZERO;
+    sett.totalSupply = ZERO;
+    sett.netDeposit = ZERO;
+    sett.grossDeposit = ZERO;
+    sett.grossWithdraw = ZERO;
+    sett.netShareDeposit = ZERO;
+    sett.grossShareDeposit = ZERO;
+    sett.grossShareWithdraw = ZERO;
+  }
+
+  let name = contract.try_name();
+  let symbol = contract.try_symbol();
+  let token = contract.try_token();
+  let pricePerFullShare = contract.try_pricePerShare();
+  let balance = contract.try_totalAssets();
+  let totalSupply = contract.try_totalSupply();
+  sett.name = !name.reverted ? name.value : sett.name;
+  sett.symbol = !symbol.reverted ? symbol.value : sett.symbol;
+  sett.token = !token.reverted ? getOrCreateToken(token.value).id : sett.token;
+  sett.pricePerFullShare = !pricePerFullShare.reverted ? pricePerFullShare.value : sett.pricePerFullShare;
+  sett.balance = !balance.reverted ? balance.value : sett.balance;
+  sett.totalSupply = !totalSupply.reverted ? totalSupply.value : sett.totalSupply;
+
+  return sett as Sett;
 }

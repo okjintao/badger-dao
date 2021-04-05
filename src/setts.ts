@@ -1,24 +1,7 @@
-import { BigInt } from "@graphprotocol/graph-ts";
 import { Transfer } from "../generated/CAKE-BBADGER-BTCB/BadgerSett"
 import { getOrCreateSett, getOrCreateSettBalance, getOrCreateUser } from "./loader";
 import { NORMALIZER, NO_ADDR, GEYSERS } from "./constants"
-import { UserSettBalance } from "../generated/schema";
-
-function handleWithdraw(userBalance: UserSettBalance, share: BigInt, token: BigInt): void {
-  userBalance.netDeposit = userBalance.netDeposit.minus(token);
-  userBalance.grossWithdraw = userBalance.grossWithdraw.plus(token);
-  userBalance.netShareDeposit = userBalance.netShareDeposit.minus(share);
-  userBalance.grossShareWithdraw = userBalance.grossShareWithdraw.plus(share);
-  userBalance.save();
-}
-
-function handleDeposit(userBalance: UserSettBalance, share: BigInt, token: BigInt): void {
-  userBalance.netDeposit = userBalance.netDeposit.plus(token);
-  userBalance.grossDeposit = userBalance.grossDeposit.plus(token);
-  userBalance.netShareDeposit = userBalance.netShareDeposit.plus(share);
-  userBalance.grossShareDeposit = userBalance.grossShareDeposit.plus(share);
-  userBalance.save();
-}
+import { handleSettDeposit, handleSettWithdraw } from "./util/sett-util";
 
 function isValidUser(address: string): boolean {
   return address != NO_ADDR && !GEYSERS.includes(address);
@@ -40,7 +23,7 @@ export function handleTransfer(event: Transfer): void {
 
   // deposit
   if (event.params.from.toHexString() == NO_ADDR) {
-    handleDeposit(toBalance, share, token);
+    handleSettDeposit(toBalance, share, token);
     sett.netDeposit = sett.netDeposit.plus(token);
     sett.grossDeposit = sett.grossDeposit.plus(token);
     sett.netShareDeposit = sett.netShareDeposit.plus(share);
@@ -49,7 +32,7 @@ export function handleTransfer(event: Transfer): void {
 
   // withdrawal
   if (event.params.to.toHexString() == NO_ADDR) {
-    handleWithdraw(fromBalance, share, token);
+    handleSettWithdraw(fromBalance, share, token);
     sett.netDeposit = sett.netDeposit.minus(token);
     sett.grossWithdraw = sett.grossWithdraw.plus(token);
     sett.netShareDeposit = sett.netShareDeposit.minus(share);
@@ -58,8 +41,8 @@ export function handleTransfer(event: Transfer): void {
 
   // transfer
   if (isValidUser(event.params.from.toHexString()) && isValidUser(event.params.to.toHexString())) {
-    handleWithdraw(fromBalance, share, token);
-    handleDeposit(toBalance, share, token);
+    handleSettWithdraw(fromBalance, share, token);
+    handleSettDeposit(toBalance, share, token);
   }
 
   to.save();
