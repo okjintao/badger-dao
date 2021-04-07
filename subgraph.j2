@@ -82,6 +82,10 @@ dataSources:
       abis:
         - name: AffiliateVault
           file: ../abis/AffiliateVault.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+        - name: BadgerSett
+          file: ../abis/BadgerSett.json
       eventHandlers:
         - event: Burn(indexed address,uint256)
           handler: handleBurn

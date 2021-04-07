@@ -7,11 +7,11 @@ import {
   UpdateGuestList,
   Withdraw
 } from "../generated/AffiliateVault/AffiliateVault"
-import { getOrCreateSett, getOrCreateSettBalance, getOrCreateUser } from "./loader";
+import { getOrCreateAffiliateSett, getOrCreateSett, getOrCreateSettBalance, getOrCreateUser } from "./loader";
 import { handleSettDeposit, handleSettWithdraw } from "./util/sett-util";
 
 export function handleBurn(event: Burn): void {
-  let sett = getOrCreateSett(event.address);
+  let sett = getOrCreateAffiliateSett(event.address);
   let account = getOrCreateUser(event.params.account);
   let share = event.params.shares;
 
@@ -25,7 +25,7 @@ export function handleBurn(event: Burn): void {
 }
 
 export function handleDeposit(event: Deposit): void {
-  let sett = getOrCreateSett(event.address);
+  let sett = getOrCreateAffiliateSett(event.address);
   let account = getOrCreateUser(event.params.account);
   let token = event.params.amount;
 
@@ -39,7 +39,7 @@ export function handleDeposit(event: Deposit): void {
 }
 
 export function handleMint(event: Mint): void {
-  let sett = getOrCreateSett(event.address);
+  let sett = getOrCreateAffiliateSett(event.address);
   let account = getOrCreateUser(event.params.account);
   let share = event.params.shares;
 
@@ -57,7 +57,7 @@ export function handleTransfer(event: Transfer): void {}
 export function handleUpdateGuestList(event: UpdateGuestList): void {}
 
 export function handleWithdraw(event: Withdraw): void {
-  let sett = getOrCreateSett(event.address);
+  let sett = getOrCreateAffiliateSett(event.address);
   let account = getOrCreateUser(event.params.account);
   let token = event.params.amount;
 

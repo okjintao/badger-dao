@@ -119,7 +119,7 @@ export function getOrCreateGeyser(address: Address): Geyser {
   return geyser as Geyser;
 }
 
-export function getOrAffiliateSett(address: Address): Sett {
+export function getOrCreateAffiliateSett(address: Address): Sett {
   let sett = Sett.load(address.toHexString());
   let contract = AffiliateVault.bind(address);
 
@@ -143,7 +143,7 @@ export function getOrAffiliateSett(address: Address): Sett {
   let symbol = contract.try_symbol();
   let token = contract.try_token();
   let pricePerFullShare = contract.try_pricePerShare();
-  let balance = contract.try_totalAssets();
+  let balance = contract.try_totalVaultBalance(address);
   let totalSupply = contract.try_totalSupply();
   sett.name = !name.reverted ? name.value : sett.name;
   sett.symbol = !symbol.reverted ? symbol.value : sett.symbol;
