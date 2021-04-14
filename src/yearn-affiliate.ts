@@ -6,7 +6,7 @@ import {
   Transfer,
   UpdateGuestList,
   Withdraw
-} from "../generated/AffiliateVault/AffiliateVault"
+} from "../generated/YFI-WBTC/AffiliateVault"
 import { getOrCreateAffiliateSett, getOrCreateSett, getOrCreateSettBalance, getOrCreateUser } from "./loader";
 import { handleSettDeposit, handleSettWithdraw } from "./util/sett-util";
 
