@@ -8,7 +8,7 @@ import {
  } from "../generated/schema"
  import { BadgerSett } from "../generated/sBTCCRV/BadgerSett"
  import { BadgerGeyser } from "../generated/sBTCCRVGeyser/BadgerGeyser"
- import { AffiliateVault } from "../generated/AffiliateVault/AffiliateVault"
+ import { AffiliateVault } from "../generated/YFI-WBTC/AffiliateVault"
  import { ERC20 } from "../generated/sBTCCRV/ERC20"
  import { NO_ADDR, ZERO } from "./constants"
 

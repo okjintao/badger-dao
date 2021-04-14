@@ -7,7 +7,7 @@ import {
   UpdateGuestList,
   Withdraw
 } from "../generated/YFI-WBTC/AffiliateVault"
-import { getOrCreateAffiliateSett, getOrCreateSett, getOrCreateSettBalance, getOrCreateUser } from "./loader";
+import { getOrCreateAffiliateSett, getOrCreateSettBalance, getOrCreateUser } from "./loader";
 import { handleSettDeposit, handleSettWithdraw } from "./util/sett-util";
 
 export function handleBurn(event: Burn): void {
