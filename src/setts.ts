@@ -1,4 +1,4 @@
-import { Transfer } from "../generated/CAKE-BBADGER-BTCB/BadgerSett"
+import { Transfer } from "../generated/sBTCCRV/BadgerSett"
 import { getOrCreateSett, getOrCreateSettBalance, getOrCreateUser } from "./loader";
 import { NORMALIZER, NO_ADDR, GEYSERS } from "./constants"
 import { handleSettDeposit, handleSettWithdraw } from "./util/sett-util";
