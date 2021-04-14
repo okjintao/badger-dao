@@ -571,3 +571,45 @@ dataSources:
           handler: handleUnstaked
       file: ../src/geysers.ts
   
+
+  
+  - kind: ethereum/contract
+    name: YFI-WBTC
+    network: mainnet
+    source:
+      address: "0xf9512aaa68ee8ea73c2244e9f75202ff022d0ef1"
+      abi: AffiliateVault
+      startBlock: 12207041
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Burn
+        - Deposit
+        - Mint
+        - UpdateGuestList
+        - Withdraw
+        - Transfer
+      abis:
+        - name: AffiliateVault
+          file: ../abis/AffiliateVault.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+        - name: BadgerSett
+          file: ../abis/BadgerSett.json
+      eventHandlers:
+        - event: Burn(indexed address,uint256)
+          handler: handleBurn
+        - event: Deposit(indexed address,uint256)
+          handler: handleDeposit
+        - event: Mint(indexed address,uint256)
+          handler: handleMint
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+        - event: UpdateGuestList(address)
+          handler: handleUpdateGuestList
+        - event: Withdraw(indexed address,uint256)
+          handler: handleWithdraw
+      file: ../src/yearn-affiliate.ts
+  
