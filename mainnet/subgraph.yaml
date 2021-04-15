@@ -577,9 +577,9 @@ dataSources:
     name: YFI-WBTC
     network: mainnet
     source:
-      address: "0x4Ea2684B087e0B8cb0BFa5d4792b266b17b43F9c"
+      address: "0x4b92d19c11435614cd49af1b589001b7c08cd4d5"
       abi: AffiliateVault
-      startBlock: 12238107
+      startBlock: 12246710
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
