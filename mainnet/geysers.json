@@ -48,5 +48,10 @@
     "name": "UNI-DIGGGeyser",
     "address": "0x0194B5fe9aB7e0C43a08aCbb771516fc057402e7",
     "startBlock": 11683491
+  },
+  "YFI-WBTC": {
+    "name": "YFI-WBTCGeyser",
+    "address": "0x155482d1e2cb0909333326504f0ea4350760c927",
+    "startBlock": 12246819
   }
 }
