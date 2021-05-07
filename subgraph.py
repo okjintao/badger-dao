@@ -16,13 +16,6 @@ if __name__ == '__main__':
   setts = [ value for key, value in settContracts.items() ]
 
   try:
-    with open(chain + '/geysers.json') as j:
-      geyserContracts = load(j)
-    geysers = [ value for key, value in geyserContracts.items() ]
-  except:
-    geysers = []
-
-  try:
     with open(chain + '/affiliate-vaults.json') as j:
       affiliateContracts = load(j)
     affiliate_vaults = [ value for key, value in affiliateContracts.items() ]
@@ -33,4 +26,4 @@ if __name__ == '__main__':
       template = Template(s.read())
   
   with open(chain + '/subgraph.yaml', 'w') as t:
-    t.write(template.render(chain=chain, setts=setts, geysers=geysers, affiliate_vaults=affiliate_vaults))
+    t.write(template.render(chain=chain, setts=setts, affiliate_vaults=affiliate_vaults))

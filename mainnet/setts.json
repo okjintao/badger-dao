@@ -53,5 +53,10 @@
     "name": "DIGG",
     "address": "0x7e7E112A68d8D2E221E11047a72fFC1065c38e1a",
     "startBlock": 11680422
+  },
+  "ibBTC": {
+    "name": "ibBTC",
+    "address": "0x8a8FFec8f4A0C8c9585Da95D9D97e8Cd6de273DE",
+    "startBlock": 12383984
   }
 }
