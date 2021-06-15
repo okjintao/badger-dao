@@ -316,6 +316,136 @@ dataSources:
           handler: handleTransfer
       file: ../src/setts.ts
   
+  - kind: ethereum/contract
+    name: hBTC
+    network: mainnet
+    source:
+      address: "0x8c76970747afd5398e958bdfada4cf0b9fca16c4"
+      abi: BadgerSett
+      startBlock: 12589485
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: ../abis/ERC20.json
+        - name: BadgerSett
+          file: ../abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ../src/setts.ts
+  
+  - kind: ethereum/contract
+    name: pBTC
+    network: mainnet
+    source:
+      address: "0x55912d0cf83b75c492e761932abc4db4a5cb1b17"
+      abi: BadgerSett
+      startBlock: 12589485
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: ../abis/ERC20.json
+        - name: BadgerSett
+          file: ../abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ../src/setts.ts
+  
+  - kind: ethereum/contract
+    name: oBTC
+    network: mainnet
+    source:
+      address: "0xf349c0faa80fc1870306ac093f75934078e28991"
+      abi: BadgerSett
+      startBlock: 12589485
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: ../abis/ERC20.json
+        - name: BadgerSett
+          file: ../abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ../src/setts.ts
+  
+  - kind: ethereum/contract
+    name: bBTC
+    network: mainnet
+    source:
+      address: "0x5dce29e92b1b939f8e8c60dcf15bde82a85be4a9"
+      abi: BadgerSett
+      startBlock: 12589485
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: ../abis/ERC20.json
+        - name: BadgerSett
+          file: ../abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ../src/setts.ts
+  
+  - kind: ethereum/contract
+    name: zsDIGG
+    network: mainnet
+    source:
+      address: "0x608b6D82eb121F3e5C0baeeD32d81007B916E83C"
+      abi: BadgerSett
+      startBlock: 12375910
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: ../abis/ERC20.json
+        - name: BadgerSett
+          file: ../abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ../src/setts.ts
+  
   
   - kind: ethereum/contract
     name: YFI-WBTC
