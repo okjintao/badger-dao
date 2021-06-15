@@ -78,5 +78,10 @@
     "name": "bBTC",
     "address": "0x5dce29e92b1b939f8e8c60dcf15bde82a85be4a9",
     "startBlock": 12589485
+  },
+  "ZS_DIGG": {
+    "name": "zsDIGG",
+    "address": "0x608b6D82eb121F3e5C0baeeD32d81007B916E83C",
+    "startBlock": 12375910
   }
 }
