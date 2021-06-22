@@ -4,10 +4,8 @@ import {
   Sett,
   UserSettBalance,
   Token,
-  Geyser
  } from "../generated/schema"
  import { BadgerSett } from "../generated/sBTCCRV/BadgerSett"
- import { BadgerGeyser } from "../generated/sBTCCRVGeyser/BadgerGeyser"
  import { AffiliateVault } from "../generated/YFI-WBTC/AffiliateVault"
  import { ERC20 } from "../generated/sBTCCRV/ERC20"
  import { NO_ADDR, ZERO } from "./constants"
@@ -97,27 +95,6 @@ export function getOrCreateToken(address: Address): Token {
 
   return token as Token;
 };
-
-export function getOrCreateGeyser(address: Address): Geyser {
-  let geyser = Geyser.load(address.toHexString());
-  let contract = BadgerGeyser.bind(address);
-
-  if (geyser == null) {
-    geyser = new Geyser(address.toHexString());
-    geyser.netShareDeposit = ZERO;
-    geyser.grossShareDeposit = ZERO;
-    geyser.grossShareWithdraw = ZERO;
-    geyser.rewardToken = NO_ADDR;
-    geyser.stakingToken = NO_ADDR;
-  }
-
-  let rewardToken = contract.getDistributionTokens();
-  geyser.rewardToken = getOrCreateToken(rewardToken[0]).id;
-  let stakingToken = contract.getStakingToken();
-  geyser.stakingToken = getOrCreateToken(stakingToken).id;
-
-  return geyser as Geyser;
-}
 
 export function getOrCreateAffiliateSett(address: Address): Sett {
   let sett = Sett.load(address.toHexString());
