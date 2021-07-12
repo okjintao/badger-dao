@@ -1,16 +1,17 @@
 specVersion: 0.0.2
 description: $BADGER Token Contracts
+repository: https://github.com/axejintao/badger-dao
 schema:
-  file: ../schema.graphql
+  file: ./schema.graphql
 dataSources:
-  {% for contract in setts %}
+  {{#setts}}
   - kind: ethereum/contract
-    name: {{ contract.name }}
+    name: {{ name }}
     network: {{ chain }}
     source:
-      address: "{{ contract.address }}"
+      address: "{{ address }}"
       abi: BadgerSett
-      startBlock: {{ contract.startBlock }}
+      startBlock: {{ startBlock }}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -22,22 +23,22 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  {% endfor %}
-  {% for contract in affiliate_vaults %}
+      file: ./src/setts.ts
+  {{/setts}}
+  {{#affiliateSetts}}
   - kind: ethereum/contract
-    name: {{ contract.name }}
+    name: {{ name }}
     network: {{ chain }}
     source:
-      address: "{{ contract.address }}"
+      address: "{{ address }}"
       abi: AffiliateVault
-      startBlock: {{ contract.startBlock }}
+      startBlock: {{ startBlock }}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -51,11 +52,11 @@ dataSources:
         - Transfer
       abis:
         - name: AffiliateVault
-          file: ../abis/AffiliateVault.json
+          file: ./abis/AffiliateVault.json
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Burn(indexed address,uint256)
           handler: handleBurn
@@ -69,6 +70,5 @@ dataSources:
           handler: handleUpdateGuestList
         - event: Withdraw(indexed address,uint256)
           handler: handleWithdraw
-      file: ../src/yearn-affiliate.ts
-  {% endfor %}
-
+      file: ./src/yearn-affiliate.ts
+  {{/affiliateSetts}}
