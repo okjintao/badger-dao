@@ -1,9 +1,9 @@
 specVersion: 0.0.2
 description: $BADGER Token Contracts
+repository: https://github.com/axejintao/badger-dao
 schema:
-  file: ../schema.graphql
+  file: ./schema.graphql
 dataSources:
-  
   - kind: ethereum/contract
     name: sBTCCRV
     network: mainnet
@@ -22,14 +22,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: renBTCCRV
     network: mainnet
@@ -48,14 +47,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: tBTCCRV
     network: mainnet
@@ -74,14 +72,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: UNI-BADGER
     network: mainnet
@@ -100,14 +97,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: hrenBTCCRV
     network: mainnet
@@ -126,14 +122,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: BADGER
     network: mainnet
@@ -152,14 +147,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: SLP-WBTC
     network: mainnet
@@ -178,14 +172,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: SLP-BADGER
     network: mainnet
@@ -204,14 +197,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: SLP-DIGG
     network: mainnet
@@ -230,14 +222,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: UNI-DIGG
     network: mainnet
@@ -256,14 +247,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: DIGG
     network: mainnet
@@ -282,14 +272,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: ibBTC
     network: mainnet
@@ -308,14 +297,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: hBTC
     network: mainnet
@@ -334,14 +322,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: pBTC
     network: mainnet
@@ -360,14 +347,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: oBTC
     network: mainnet
@@ -386,14 +372,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: bBTC
     network: mainnet
@@ -412,14 +397,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: zsDIGG
     network: mainnet
@@ -438,14 +422,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: tricrypto
     network: mainnet
@@ -464,14 +447,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: cvx
     network: mainnet
@@ -490,14 +472,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: cvxcrv
     network: mainnet
@@ -516,15 +497,13 @@ dataSources:
         - UserSettBalance
       abis:
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ../src/setts.ts
-  
-  
+      file: ./src/setts.ts
   - kind: ethereum/contract
     name: YFI-WBTC
     network: mainnet
@@ -545,11 +524,11 @@ dataSources:
         - Transfer
       abis:
         - name: AffiliateVault
-          file: ../abis/AffiliateVault.json
+          file: ./abis/AffiliateVault.json
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
         - name: BadgerSett
-          file: ../abis/BadgerSett.json
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: Burn(indexed address,uint256)
           handler: handleBurn
@@ -563,5 +542,4 @@ dataSources:
           handler: handleUpdateGuestList
         - event: Withdraw(indexed address,uint256)
           handler: handleWithdraw
-      file: ../src/yearn-affiliate.ts
-  
+      file: ./src/yearn-affiliate.ts
