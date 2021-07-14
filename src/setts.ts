@@ -1,7 +1,7 @@
-import { Transfer } from "../generated/CAKE-BBADGER-BTCB/BadgerSett"
-import { getOrCreateSett, getOrCreateSettBalance, getOrCreateUser } from "./loader";
-import { NORMALIZER, NO_ADDR, GEYSERS } from "./constants"
-import { handleSettDeposit, handleSettWithdraw } from "./util/sett-util";
+import { Transfer } from '../generated/CAKE-BBADGER-BTCB/BadgerSett';
+import { GEYSERS, NO_ADDR, NORMALIZER } from './constants';
+import { getOrCreateSett, getOrCreateSettBalance, getOrCreateUser } from './loader';
+import { handleSettDeposit, handleSettWithdraw } from './utils/sett-util';
 
 function isValidUser(address: string): boolean {
   return address != NO_ADDR && !GEYSERS.includes(address);
@@ -9,17 +9,17 @@ function isValidUser(address: string): boolean {
 
 export function handleTransfer(event: Transfer): void {
   // get relevant entities
-  let sett = getOrCreateSett(event.address);
-  let from = getOrCreateUser(event.params.from);
-  let to = getOrCreateUser(event.params.to);
+  const sett = getOrCreateSett(event.address);
+  const from = getOrCreateUser(event.params.from);
+  const to = getOrCreateUser(event.params.to);
 
   // get share and token values
-  let share = event.params.value;
-  let token = share.times(sett.pricePerFullShare).div(NORMALIZER);
+  const share = event.params.value;
+  const token = share.times(sett.pricePerFullShare).div(NORMALIZER);
 
   // get user balances
-  let fromBalance = getOrCreateSettBalance(from, sett);
-  let toBalance = getOrCreateSettBalance(to, sett);
+  const fromBalance = getOrCreateSettBalance(from, sett);
+  const toBalance = getOrCreateSettBalance(to, sett);
 
   // deposit
   if (event.params.from.toHexString() == NO_ADDR) {

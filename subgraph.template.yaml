@@ -4,6 +4,34 @@ repository: https://github.com/axejintao/badger-dao
 schema:
   file: ./schema.graphql
 dataSources:
+  {{#registry}}
+  - kind: ethereum/contract
+    name: VaultRegistry
+    network: {{ chain }}
+    source:
+      address: "{{ address }}"
+      abi: VaultRegistry
+      startBlock: {{ startBlock }}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - NewVault
+        - PromoteVault
+        - RemoveVault
+      abis:
+        - name: VaultRegistry
+          file: ./abis/VaultRegistry.json
+      eventHandlers:
+        - event: NewVault(address,address)
+          handler: handleNewVault
+        - event: PromoteVault(address,address)
+          handler: handlePromoteVault
+        - event: RemoveVault(address,address)
+          handler: handleRemoveVault
+      file: ./src/handlers/registry-handler.ts
+  {{/registry}}
   {{#setts}}
   - kind: ethereum/contract
     name: {{ name }}
@@ -72,3 +100,29 @@ dataSources:
           handler: handleWithdraw
       file: ./src/yearn-affiliate.ts
   {{/affiliateSetts}}
+{{#registry}}
+templates:
+  - kind: ethereum/contract
+    name: SettVault
+    network: {{ chain }}
+    source:
+      abi: BadgerSett
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+        - name: BadgerSett
+          file: ./abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/setts.ts
+{{/registry}}

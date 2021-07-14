@@ -1,5 +1,5 @@
-import { UserSettBalance } from "../../generated/schema";
-import { BigInt } from "@graphprotocol/graph-ts";
+import { BigInt } from '@graphprotocol/graph-ts';
+import { UserSettBalance } from '../../generated/schema';
 
 export function handleSettWithdraw(userBalance: UserSettBalance, share: BigInt, token: BigInt): void {
   userBalance.netDeposit = userBalance.netDeposit.minus(token);

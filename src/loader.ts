@@ -1,14 +1,9 @@
-import { Address, BigInt, log } from "@graphprotocol/graph-ts"
-import { 
-  User,
-  Sett,
-  UserSettBalance,
-  Token,
- } from "../generated/schema"
- import { BadgerSett } from "../generated/sBTCCRV/BadgerSett"
- import { AffiliateVault } from "../generated/YFI-WBTC/AffiliateVault"
- import { ERC20 } from "../generated/sBTCCRV/ERC20"
- import { NO_ADDR, ZERO } from "./constants"
+import { Address, BigInt } from '@graphprotocol/graph-ts';
+import { BadgerSett } from '../generated/sBTCCRV/BadgerSett';
+import { ERC20 } from '../generated/sBTCCRV/ERC20';
+import { Sett, Token, User, UserSettBalance } from '../generated/schema';
+import { AffiliateVault } from '../generated/YFI-WBTC/AffiliateVault';
+import { ZERO } from './constants';
 
 export function getOrCreateUser(address: Address): User {
   let user = User.load(address.toHexString());
@@ -22,13 +17,13 @@ export function getOrCreateUser(address: Address): User {
 
 export function getOrCreateSett(address: Address): Sett {
   let sett = Sett.load(address.toHexString());
-  let contract = BadgerSett.bind(address);
+  const contract = BadgerSett.bind(address);
 
   if (sett == null) {
     sett = new Sett(address.toHexString());
-    sett.name = "";
-    sett.symbol = "";
-    sett.token = "";
+    sett.name = '';
+    sett.symbol = '';
+    sett.token = '';
     sett.pricePerFullShare = ZERO;
     sett.balance = ZERO;
     sett.totalSupply = ZERO;
@@ -40,12 +35,12 @@ export function getOrCreateSett(address: Address): Sett {
     sett.grossShareWithdraw = ZERO;
   }
 
-  let name = contract.try_name();
-  let symbol = contract.try_symbol();
-  let token = contract.try_token();
-  let pricePerFullShare = contract.try_getPricePerFullShare();
-  let balance = contract.try_balance();
-  let totalSupply = contract.try_totalSupply();
+  const name = contract.try_name();
+  const symbol = contract.try_symbol();
+  const token = contract.try_token();
+  const pricePerFullShare = contract.try_getPricePerFullShare();
+  const balance = contract.try_balance();
+  const totalSupply = contract.try_totalSupply();
   sett.name = !name.reverted ? name.value : sett.name;
   sett.symbol = !symbol.reverted ? symbol.value : sett.symbol;
   sett.token = !token.reverted ? getOrCreateToken(token.value).id : sett.token;
@@ -57,7 +52,7 @@ export function getOrCreateSett(address: Address): Sett {
 }
 
 export function getOrCreateSettBalance(user: User, sett: Sett): UserSettBalance {
-  let settBalanceId = user.id.concat("-").concat(sett.id);
+  const settBalanceId = user.id.concat('-').concat(sett.id);
   let settBalance = UserSettBalance.load(settBalanceId);
 
   if (settBalance == null) {
@@ -79,11 +74,11 @@ export function getOrCreateToken(address: Address): Token {
   let token = Token.load(address.toHexString());
 
   if (token == null) {
-    let tokenContract = ERC20.bind(address);
-    let decimals = tokenContract.try_decimals();
-    let name = tokenContract.try_name();
-    let symbol = tokenContract.try_symbol();
-    let totalSupply = tokenContract.try_totalSupply();
+    const tokenContract = ERC20.bind(address);
+    const decimals = tokenContract.try_decimals();
+    const name = tokenContract.try_name();
+    const symbol = tokenContract.try_symbol();
+    const totalSupply = tokenContract.try_totalSupply();
 
     token = new Token(address.toHexString());
     token.decimals = !decimals.reverted ? BigInt.fromI32(decimals.value) : token.decimals;
@@ -94,17 +89,17 @@ export function getOrCreateToken(address: Address): Token {
   }
 
   return token as Token;
-};
+}
 
 export function getOrCreateAffiliateSett(address: Address): Sett {
   let sett = Sett.load(address.toHexString());
-  let contract = AffiliateVault.bind(address);
+  const contract = AffiliateVault.bind(address);
 
   if (sett == null) {
     sett = new Sett(address.toHexString());
-    sett.name = "";
-    sett.symbol = "";
-    sett.token = "";
+    sett.name = '';
+    sett.symbol = '';
+    sett.token = '';
     sett.pricePerFullShare = ZERO;
     sett.balance = ZERO;
     sett.totalSupply = ZERO;
@@ -116,12 +111,12 @@ export function getOrCreateAffiliateSett(address: Address): Sett {
     sett.grossShareWithdraw = ZERO;
   }
 
-  let name = contract.try_name();
-  let symbol = contract.try_symbol();
-  let token = contract.try_token();
-  let pricePerFullShare = contract.try_pricePerShare();
-  let balance = contract.try_totalVaultBalance(address);
-  let totalSupply = contract.try_totalSupply();
+  const name = contract.try_name();
+  const symbol = contract.try_symbol();
+  const token = contract.try_token();
+  const pricePerFullShare = contract.try_pricePerShare();
+  const balance = contract.try_totalVaultBalance(address);
+  const totalSupply = contract.try_totalSupply();
   sett.name = !name.reverted ? name.value : sett.name;
   sett.symbol = !symbol.reverted ? symbol.value : sett.symbol;
   sett.token = !token.reverted ? getOrCreateToken(token.value).id : sett.token;

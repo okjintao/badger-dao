@@ -1,3 +1,11 @@
+type Transfer @entity {
+  id: ID!
+  timestamp: BigInt!
+  from: String!
+  to: String!
+  amount: BigInt!
+}
+
 type User @entity {
   id: ID!
   settBalances: [UserSettBalance!]! @derivedFrom(field: "user")
