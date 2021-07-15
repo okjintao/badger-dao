@@ -1,11 +1,12 @@
 import { Address } from '@graphprotocol/graph-ts';
 import { SettVault } from '../../generated/templates';
 import { NewVault, PromoteVault, RemoveVault } from '../../generated/VaultRegistry/VaultRegistry';
-import { getOrCreateSett } from '../loader';
+import { BadgerSettHelper } from '../helpers/badger-sett-helper';
 
 function registerVault(vault: Address): void {
   SettVault.create(vault);
-  getOrCreateSett(vault).save();
+  const loader = new BadgerSettHelper();
+  loader.load(vault);
 }
 
 // TODO: consider how to differentiate on author

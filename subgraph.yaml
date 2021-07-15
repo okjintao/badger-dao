@@ -22,6 +22,10 @@ dataSources:
       abis:
         - name: VaultRegistry
           file: ./abis/VaultRegistry.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+        - name: BadgerSett
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: NewVault(address,address)
           handler: handleNewVault
@@ -30,6 +34,7 @@ dataSources:
         - event: RemoveVault(address,address)
           handler: handleRemoveVault
       file: ./src/handlers/registry-handler.ts
+
 templates:
   - kind: ethereum/contract
     name: SettVault
@@ -53,4 +58,41 @@ templates:
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-      file: ./src/setts.ts
+      file: ./src/handlers/sett-handler.ts
+  - kind: ethereum/contract
+    name: AffiliateSettVault
+    network: matic
+    source:
+      abi: BadgerAffiliateSett
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Burn
+        - Deposit
+        - Mint
+        - UpdateGuestList
+        - Withdraw
+        - Transfer
+      abis:
+        - name: BadgerAffiliateSett
+          file: ./abis/BadgerAffiliateSett.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+        - name: BadgerSett
+          file: ./abis/BadgerSett.json
+      eventHandlers:
+        - event: Burn(indexed address,uint256)
+          handler: handleBurn
+        - event: Deposit(indexed address,uint256)
+          handler: handleDeposit
+        - event: Mint(indexed address,uint256)
+          handler: handleMint
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+        - event: UpdateGuestList(address)
+          handler: handleUpdateGuestList
+        - event: Withdraw(indexed address,uint256)
+          handler: handleWithdraw
+      file: ./src/handlers/badger-affiliate-handler.ts
