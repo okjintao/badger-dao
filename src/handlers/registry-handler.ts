@@ -5,8 +5,8 @@ import { BadgerSettHelper } from '../helpers/badger-sett-helper';
 
 function registerVault(vault: Address): void {
   SettVault.create(vault);
-  const loader = new BadgerSettHelper();
-  loader.load(vault);
+  // const loader = new BadgerSettHelper();
+  // loader.load(vault);
 }
 
 // TODO: consider how to differentiate on author
@@ -15,8 +15,8 @@ export function handleNewVault(event: NewVault): void {
 }
 
 // TODO: potentially use for upgrading vault state vs. registering new vaults
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 export function handlePromoteVault(event: PromoteVault): void {
-  registerVault(event.params.vault);
 }
 
 // TODO: consider vault state (active, deprecated, guarded) via new / promote

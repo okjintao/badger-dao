@@ -23,6 +23,10 @@ dataSources:
       abis:
         - name: VaultRegistry
           file: ./abis/VaultRegistry.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+        - name: BadgerSett
+          file: ./abis/BadgerSett.json
       eventHandlers:
         - event: NewVault(address,address)
           handler: handleNewVault

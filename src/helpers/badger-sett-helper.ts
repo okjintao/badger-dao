@@ -1,4 +1,4 @@
-import { Address, BigInt } from '@graphprotocol/graph-ts';
+import { Address, BigInt, log } from '@graphprotocol/graph-ts';
 import { Sett } from '../../generated/schema';
 import { BadgerSett } from '../../generated/templates/SettVault/BadgerSett';
 import { ZERO } from '../constants';
@@ -7,6 +7,7 @@ import { TokenHelper } from './token-helper';
 
 export class BadgerSettHelper extends SettHelper {
   load(address: Address): Sett {
+    log.info('Register sett {}', [address.toHexString()]);
     const contract = BadgerSett.bind(address);
     const tokenHelper = new TokenHelper();
     let sett = Sett.load(address.toHexString());
@@ -16,7 +17,9 @@ export class BadgerSettHelper extends SettHelper {
       sett.name = this.readValue<string>(contract.try_name(), sett.name);
       sett.symbol = this.readValue<string>(contract.try_symbol(), sett.symbol);
       const token = this.readValue<Address>(contract.try_token(), Address.fromString(sett.token));
+      log.info('Read deposit token{}', [token.toHexString()]);
       sett.token = tokenHelper.load(token).id;
+      log.info('Found token{}', [sett.token]);
       sett.netDeposit = ZERO;
       sett.grossDeposit = ZERO;
       sett.grossWithdraw = ZERO;
