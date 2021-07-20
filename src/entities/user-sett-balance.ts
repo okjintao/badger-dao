@@ -3,11 +3,11 @@ import { Sett, User, UserSettBalance } from '../../generated/schema';
 import { ZERO } from '../constants';
 
 export function loadUserBalance(user: User, sett: Sett): UserSettBalance {
-  const settBalanceId = user.id.concat('-').concat(sett.id);
-  let settBalance = UserSettBalance.load(settBalanceId);
+  let id = user.id.concat('-').concat(sett.id);
+  let settBalance = UserSettBalance.load(id);
 
   if (settBalance == null) {
-    settBalance = new UserSettBalance(settBalanceId);
+    settBalance = new UserSettBalance(id);
     settBalance.sett = sett.id;
     settBalance.user = user.id;
     settBalance.netDeposit = ZERO;

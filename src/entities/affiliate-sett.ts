@@ -6,14 +6,14 @@ import { readValue } from '../utils/contracts';
 import { loadToken } from './token';
 
 export function loadAffiliateSett(address: Address): Sett {
-  const contract = BadgerAffiliateSett.bind(address);
+  let contract = BadgerAffiliateSett.bind(address);
   let sett = Sett.load(address.toHexString());
 
   if (sett == null) {
     sett = new Sett(address.toHexString());
     sett.name = readValue<string>(contract.try_name(), sett.name);
     sett.symbol = readValue<string>(contract.try_symbol(), sett.symbol);
-    const token = readValue<Address>(contract.try_token(), Address.fromString(sett.token));
+    let token = readValue<Address>(contract.try_token(), Address.fromString(sett.token));
     sett.token = loadToken(token).id;
     sett.token = '';
     sett.netDeposit = ZERO;

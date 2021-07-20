@@ -6,17 +6,15 @@ import { readValue } from '../utils/contracts';
 import { loadToken } from './token';
 
 export function loadSett(address: Address): Sett {
-  const contract = BadgerSett.bind(address);
+  let contract = BadgerSett.bind(address);
   let sett = Sett.load(address.toHexString());
 
   if (sett == null) {
     sett = new Sett(address.toHexString());
     sett.name = readValue<string>(contract.try_name(), sett.name);
     sett.symbol = readValue<string>(contract.try_symbol(), sett.symbol);
-    const token = readValue<Address>(contract.try_token(), Address.fromString(sett.token));
-    log.info('Read deposit token{}', [token.toHexString()]);
+    let token = readValue<Address>(contract.try_token(), Address.fromString(sett.token));
     sett.token = loadToken(token).id;
-    log.info('Found token{}', [sett.token]);
     sett.netDeposit = ZERO;
     sett.grossDeposit = ZERO;
     sett.grossWithdraw = ZERO;

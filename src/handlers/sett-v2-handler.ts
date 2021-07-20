@@ -1,5 +1,4 @@
 import {
-  Approval,
   EmergencyShutdown,
   NewPendingGovernance,
   StrategyAdded,
@@ -23,11 +22,12 @@ import {
   UpdateRewards,
   UpdateWithdrawalFee,
   UpdateWithdrawalQueue,
-} from '../../generated/templates/BadgerSettV2/BadgerSettV2';
+} from '../../generated/templates/SettVaultV2/BadgerSettV2';
+import { handleSettTokenTransfer } from '../utils/setts';
 
-export function handleTransfer(event: Transfer): void {}
-
-export function handleApproval(event: Approval): void {}
+export function handleTransfer(event: Transfer): void {
+  handleSettTokenTransfer(event.address, event.params.sender, event.params.receiver, event.params.value);
+}
 
 export function handleStrategyAdded(event: StrategyAdded): void {}
 

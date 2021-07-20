@@ -47,6 +47,7 @@ module.exports = {
 		'@typescript-eslint/restrict-plus-operands': 'off',
 		'@typescript-eslint/restrict-template-expressions': 'off',
 		'@typescript-eslint/unbound-method': 'off',
+		'@typescript-eslint/prefer-const': 'off',
 		'no-unused-vars': 'off',
 		'simple-import-sort/imports': [
 			'error',

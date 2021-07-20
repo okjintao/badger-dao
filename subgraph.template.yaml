@@ -1,8 +1,6 @@
 specVersion: 0.0.2
 description: $BADGER Token Contracts
 repository: https://github.com/axejintao/badger-dao
-features:
-  - nonFatalErrors
 schema:
   file: ./schema.graphql
 dataSources:
@@ -19,9 +17,8 @@ dataSources:
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-        - NewVault
-        - PromoteVault
-        - RemoveVault
+        - Sett
+        - Token
       abis:
         - name: VaultRegistry
           file: ./abis/VaultRegistry.json
@@ -78,12 +75,10 @@ dataSources:
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-        - Burn
-        - Deposit
-        - Mint
-        - UpdateGuestList
-        - Withdraw
-        - Transfer
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
       abis:
         - name: AffiliateVault
           file: ./abis/AffiliateVault.json
@@ -188,8 +183,6 @@ templates:
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-        - event: Approval(indexed address,indexed address,uint256)
-          handler: handleApproval
         - event: StrategyAdded(indexed address,uint256,uint256,uint256,uint256)
           handler: handleStrategyAdded
         - event: StrategyReported(indexed address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)

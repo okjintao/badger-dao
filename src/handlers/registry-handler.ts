@@ -1,4 +1,4 @@
-import { Address } from '@graphprotocol/graph-ts';
+import { Address, log } from '@graphprotocol/graph-ts';
 import { SettVaultV2 } from '../../generated/templates';
 import { NewVault, PromoteVault, RemoveVault } from '../../generated/VaultRegistry/VaultRegistry';
 import { loadSettV2 } from '../entities/badger-sett-v2';
@@ -10,7 +10,9 @@ function registerVault(vault: Address): void {
 
 // TODO: consider how to differentiate on author
 export function handleNewVault(event: NewVault): void {
-  registerVault(event.params.vault);
+  log.warning('handleNewVault {} (author: {})', [event.params.vault.toHexString(), event.params.author.toHexString()]);
+  // registerVault(event.params.vault);
+  SettVaultV2.create(event.params.vault);
 }
 
 // TODO: potentially use for upgrading vault state vs. registering new vaults

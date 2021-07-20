@@ -2,22 +2,22 @@ import { BigInt } from '@graphprotocol/graph-ts';
 
 // protocol addresses
 // TODO: we may need governance view on registry / dynamically set
-export const GOVERNANCE = '0xB65cef03b9B89f99517643226d76e286ee999e77';
+export let GOVERNANCE = '0xB65cef03b9B89f99517643226d76e286ee999e77';
 
 // true constants
-export const NONE = '';
-export const NO_ADDR = '0x0000000000000000000000000000000000000000';
-export const BADGER = '0x3472a5a71965499acd81997a54bba8d852c6e53d';
-export const DIGG = '0x798d1be841a82a273720ce31c822c61a67a601c3';
+export let NONE = '';
+export let NO_ADDR = '0x0000000000000000000000000000000000000000';
+export let BADGER = '0x3472a5a71965499acd81997a54bba8d852c6e53d';
+export let DIGG = '0x798d1be841a82a273720ce31c822c61a67a601c3';
 
 // evaluated constants
-export const ZERO = BigInt.fromI32(0);
+export let ZERO = BigInt.fromI32(0);
 
 // 10^18, suggest a better name!
-export const NORMALIZER = BigInt.fromI32(10).pow(18);
+export let NORMALIZER = BigInt.fromI32(10).pow(18);
 
 // geysers
-export const GEYSERS: string[] = [
+export let GEYSERS: string[] = [
   '0x10fc82867013fce1bd624fafc719bb92df3172fc',
   '0x2296f174374508278dc12b806a7f27c87d53ca15',
   '0xa207d69ea6fb967e54baa8639c408c31767ba62d',
