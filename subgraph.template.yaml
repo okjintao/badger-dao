@@ -68,7 +68,7 @@ dataSources:
     network: {{ chain }}
     source:
       address: "{{ address }}"
-      abi: AffiliateVault
+      abi: BadgerAffiliateSett
       startBlock: {{ startBlock }}
     mapping:
       kind: ethereum/events
@@ -80,8 +80,8 @@ dataSources:
         - Token
         - UserSettBalance
       abis:
-        - name: AffiliateVault
-          file: ./abis/AffiliateVault.json
+        - name: BadgerAffiliateSett
+          file: ./abis/BadgerAffiliateSett.json
         - name: ERC20
           file: ./abis/ERC20.json
         - name: BadgerSett
@@ -99,7 +99,7 @@ dataSources:
           handler: handleUpdateGuestList
         - event: Withdraw(indexed address,uint256)
           handler: handleWithdraw
-      file: ./src/handlers/yearn-affiliate-handler.ts
+      file: ./src/handlers/sett-affiliate-handler.ts
   {{/affiliateSetts}}
 
 templates:
@@ -160,7 +160,7 @@ templates:
           handler: handleUpdateGuestList
         - event: Withdraw(indexed address,uint256)
           handler: handleWithdraw
-      file: ./src/handlers/badger-affiliate-handler.ts
+      file: ./src/handlers/sett-affiliate-handler.ts
   - kind: ethereum/contract
     name: SettVaultV2
     network: {{ chain }}
