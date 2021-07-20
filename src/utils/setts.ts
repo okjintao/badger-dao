@@ -1,4 +1,4 @@
-import { Address, BigInt, log } from '@graphprotocol/graph-ts';
+import { Address, BigInt } from '@graphprotocol/graph-ts';
 import { Sett } from '../../generated/schema';
 import { NO_ADDR, NORMALIZER } from '../constants';
 import { loadSett } from '../entities/badger-sett';
@@ -30,13 +30,6 @@ export function handleSettTokenTransfer(
   legacy: boolean = false,
 ): void {
   // get relevant entities
-  log.warning('sett: {}, from: {}, to: {}, share: {}, legacy: {}', [
-    settAddress.toHexString(),
-    fromAddress.toHexString(),
-    toAddress.toHexString(),
-    share.toString(),
-    legacy.toString(),
-  ]);
   let sett = legacy ? loadSett(settAddress) : loadSettV2(settAddress);
   let from = loadUser(fromAddress);
   let to = loadUser(toAddress);
