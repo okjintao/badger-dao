@@ -1,8 +1,3 @@
-type User @entity {
-  id: ID!
-  settBalances: [UserSettBalance!]! @derivedFrom(field: "user")
-}
-
 type Sett @entity {
   id: ID!
   "Sett name"
@@ -29,6 +24,19 @@ type Sett @entity {
   grossShareDeposit: BigInt!
   "Total sett withdraw share value"
   grossShareWithdraw: BigInt!
+}
+
+type User @entity {
+  id: ID!
+  settBalances: [UserSettBalance!]! @derivedFrom(field: "user")
+}
+
+type Transfer @entity {
+  id: ID!
+  timestamp: BigInt!
+  from: String!
+  to: String!
+  amount: BigInt!
 }
 
 type UserSettBalance @entity {

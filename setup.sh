@@ -1,7 +1,7 @@
 #!/bin/zsh
 typeset -a array
 
-array=("bsc" "mainnet")
+array=("matic" "bsc" "mainnet")
 
 for i ("${array[@]}")
 do
