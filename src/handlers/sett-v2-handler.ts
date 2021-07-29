@@ -25,6 +25,8 @@ import {
 } from '../../generated/templates/SettVaultV2/BadgerSettV2';
 import { handleSettTokenTransfer } from './sett-handler';
 
+/* eslint-disable */
+
 export function handleTransfer(event: Transfer): void {
   let timestamp = event.block.timestamp.toI32();
   let from = event.params.sender;

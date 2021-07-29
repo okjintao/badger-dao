@@ -10,7 +10,7 @@ export function handleNewVault(event: NewVault): void {
 }
 
 // TODO: potentially use for upgrading vault state vs. registering new vaults
-// eslint-disable-next-line @typescript-eslint/no-empty-function
+// eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars-experimental
 export function handlePromoteVault(event: PromoteVault): void {}
 
 // TODO: consider vault state (active, deprecated, guarded) via new / promote
