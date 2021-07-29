@@ -13,6 +13,10 @@ jobs:
           node-version: '14.x'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Prepare subgraph manifest
+        run: yarn prepare:mainnet
+      - name: Generate required graphql entities
+        run: yarn codegen
       - name: Lint
         run: yarn lint
       - name: Build
