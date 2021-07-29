@@ -23,10 +23,14 @@ import {
   UpdateWithdrawalFee,
   UpdateWithdrawalQueue,
 } from '../../generated/templates/SettVaultV2/BadgerSettV2';
-import { handleSettTokenTransfer } from '../utils/setts';
+import { handleSettTokenTransfer } from './sett-handler';
 
 export function handleTransfer(event: Transfer): void {
-  handleSettTokenTransfer(event.address, event.params.sender, event.params.receiver, event.params.value);
+  let timestamp = event.block.timestamp.toI32();
+  let from = event.params.sender;
+  let to = event.params.receiver;
+  let value = event.params.value;
+  handleSettTokenTransfer(timestamp, event.address, from, to, value, true);
 }
 
 export function handleStrategyAdded(event: StrategyAdded): void {}
