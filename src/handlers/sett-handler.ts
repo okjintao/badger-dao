@@ -40,7 +40,7 @@ export function handleSettTokenTransfer(
   fromAddress: Address,
   toAddress: Address,
   share: BigInt,
-  legacy = false,
+  legacy: boolean = false,
 ): void {
   // get relevant entities
   let sett = legacy ? loadSett(settAddress) : loadSettV2(settAddress);
