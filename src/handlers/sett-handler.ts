@@ -40,6 +40,7 @@ export function handleSettTokenTransfer(
   fromAddress: Address,
   toAddress: Address,
   share: BigInt,
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   legacy: boolean = false,
 ): void {
   // get relevant entities
