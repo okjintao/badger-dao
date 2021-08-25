@@ -1,6 +1,14 @@
 import { Sett } from '../../generated/schema';
 import { SettVault } from '../../generated/templates';
-import { AddKey, AddVersion, DemoteVault, NewVault, PromoteVault, RemoveVault, Set } from '../../generated/VaultRegistry/VaultRegistry';
+import {
+  AddKey,
+  AddVersion,
+  DemoteVault,
+  NewVault,
+  PromoteVault,
+  RemoveVault,
+  Set,
+} from '../../generated/VaultRegistry/VaultRegistry';
 import { loadSett } from '../entities/badger-sett';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars-experimental
